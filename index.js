@@ -11,7 +11,7 @@ app.use(express.json());
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Teejanee19891989190205...",
+  password: "",
   database: "cybersecurity",
   port: "3306",
 });
@@ -51,7 +51,7 @@ app.post("/login", (request, response) => {
 });
 
 app.get("/users", (request, response) => {
-  const query = "SELECT * FROM users"; // 🚨 SQL Injection Risk
+  const query = "SELECT * FROM users"; 
   db.query(query, (err, results) => {
     if (err) return response.status(500).json({ error: "Database error" });
     response.json(results);
